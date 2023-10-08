@@ -1,0 +1,45 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+---
+
+<SiteLayout title="Home - zeu.dev">
+  <section class="flex flex-col gap-8 w-fit px-auto py-32 mx-auto items-center text-center">
+
+    <div class="relative mx-auto px-auto">
+
+      <h1 class="text-5xl lg:text-8xl font-black">
+        <span class="text-rose-500">Hey </span>  
+        <span class="text-yellow-500">Hi </span>  
+        <span class="text-sky-500">Hello!</span> 
+      </h1>
+
+      <div class="absolute -top-32 -right-16 animate-wiggle">
+        <div class="flex outline-2 outline-offset-2 outline-dashed outline-yellow-500 items-center justify-center bg-yellow-500 w-28 h-28 rounded-full">
+          <h3 class="text-lg italic font-bold">
+            made w/
+            <br />
+            <span class="text-2xl">{"<3"}</span>
+          </h3>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="flex flex-col gap-12 px-auto py-8 items-center">
+      <h2 class="text-2xl">Software and Web Applications by Zeu Capua</h2>
+      <div class="w-12 h-12 animate-bounce">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h3 class="text-3xl">Sites</h3>
+  </section>
+
+  <section>
+    <h3>Applications</h3>
+  </section>
+
+</SiteLayout>

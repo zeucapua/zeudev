@@ -1,0 +1,30 @@
+---
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{ title }</title>
+	</head>
+	<body class="flex flex-col gap-8 w-full h-full min-w-screen min-h-screen bg-indigo-950 text-white font-martian p-4 lg:p-8">
+    <nav class="flex flex-row justify-between w-full max-w-[50%] border-2 self-center px-8 py-4 rounded-lg">
+      <a href="/" class="font-bold rounded-full border border-sky-500 hover:bg-sky-500/10 px-4 py-2 transition duration-300">home</a>
+      <div class="flex flex-row gap-4">
+        <a href="https://thoughts.zeu.dev" class="font-bold rounded-full border border-rose-500 hover:bg-rose-500/10 px-4 py-2 transition duration-300">thoughts</a>
+        <a href="/connect" class="font-bold rounded-full border border-yellow-500 hover:bg-yellow-500/10 px-4 py-2 transition duration-300">connect</a>
+      </div>
+    </nav>
+    <slot />
+	</body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Martian Mono";
+    src: url("/MartianMono-VariableFont_wdth,wght.ttf");
+  }
+</style>
