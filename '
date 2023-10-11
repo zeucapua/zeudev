@@ -1,5 +1,24 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import ProjectPreview from "../components/ProjectPreview.astro";
+
+const sites = [
+  { 
+    title: "SmartWiz.io",
+    description: "A marketing site for a tax software business, with payment forms.",
+    image: {
+      src: "/images/smartwiz-preview.png",
+      alt: "SmartWiz.io front page screenshot",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "logos:remix-logo",
+      "simple-icons:tailwindcss",
+      "simple-icons:stripe"
+    ]
+  },
+]
 ---
 
 <SiteLayout title="Home - zeu.dev">
@@ -35,11 +54,16 @@ import SiteLayout from "../layouts/SiteLayout.astro";
   </section>
 
   <section>
-    <h3 class="text-3xl">Sites</h3>
+    <h3 class="text-4xl font-bold underline decoration-2 underline-offset-8 decoration-double">Sites</h3>
+    { 
+      sites.map((site) => (
+        <ProjectPreview title={site.title} description={site.description} image={site.image} icons={site.icons} />
+      ))
+    }
   </section>
 
   <section>
-    <h3>Applications</h3>
+    <h3 class="text-4xl font-bold underline decoration-2 underline-offset-8 decoration-double">Applications</h3>
   </section>
 
 </SiteLayout>

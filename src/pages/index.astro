@@ -1,31 +1,122 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import ProjectPreview from "../components/ProjectPreview.astro";
+
+const sites = [
+  { 
+    title: "SmartWiz.io",
+    description: "Implementing design and functionality for a marketing site for a tax software business with payment forms.",
+    link: "https://smartwiz.io",
+    image: {
+      src: "/images/smartwiz-preview.png",
+      alt: "SmartWiz.io front page screenshot",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "logos:remix-icon",
+      "simple-icons:tailwindcss",
+      "simple-icons:stripe"
+    ]
+  },
+  {
+    title: "The Artopath: Portfolio",
+    description: "Developed for Los Angeles artist Sebastian Lopez, collaborated on design and implementation.",
+    link: "https://theartopath.vercel.app",
+    image: {
+      src: "/images/theartopath-preview.png",
+      alt: "The Artopath front page screenshot",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "simple-icons:svelte",
+      "simple-icons:tailwindcss",
+    ]
+  },
+  {
+    title: "Progressive Victory",
+    description: "Designed and developed for an online community dedicated to getting young voters out for elections.",
+    link: "https://progressivevictory.win",
+    image: {
+      src: "/images/pv-preview.png",
+      alt: "Progressive Victory front page screenshot",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "simple-icons:nextdotjs",
+      "simple-icons:tailwindcss",
+      "simple-icons:airtable"
+    ]
+  },
+];
+
+const applications = [
+  {
+    title: "RNLive.club",
+    description: "A streamer's toolbox, focused on live interactions and audience support. Available as an OBS overlay tool.",
+    link: "https://rnlive.club",
+    image: {
+      src: "/images/theartopath-preview.png",
+      alt: "rnlive.club showcase",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "simple-icons:svelte",
+      "simple-icons:tailwindcss",
+      "fluent:balloon-16-regular"
+    ]
+  },
+  {
+    title: "SPLAT Template",
+    description: "A project template to start with the SPLAT stack: SvelteKit, Prisma, Lucia (auth), TailwindCSS.",
+    link: "https://github.com/zeucapua/splat-template",
+    image: {
+      src: "/images/theartopath-preview.png",
+      alt: "rnlive.club showcase",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "simple-icons:svelte",
+      "simple-icons:tailwindcss",
+      "file-icons:prisma"
+    ]
+  },
+  {
+    title: "You're Cancelled",
+    description: "Simplest way to schedule (and cancel) plans with friends! Based on a viral tweet.",
+    link: "https://youre-cancelled.zeu.dev",
+    image: {
+      src: "/images/theartopath-preview.png",
+      alt: "rnlive.club showcase",
+      width: 1266,
+      height: 951
+    },
+    icons: [
+      "simple-icons:svelte",
+      "file-icons:prisma",
+      "healthicons:r-negative"
+    ]
+  },
+];
+
 ---
 
 <SiteLayout title="Home - zeu.dev">
-  <section class="flex flex-col gap-8 w-fit px-auto py-32 mx-auto items-center text-center">
+  <section class="flex flex-col gap-4 lg:gap-8 w-fit px-auto pt-16 mx-auto items-center text-center">
 
-    <div class="relative mx-auto px-auto">
 
-      <h1 class="text-5xl lg:text-8xl font-black">
-        <span class="text-rose-500">Hey </span>  
-        <span class="text-yellow-500">Hi </span>  
-        <span class="text-sky-500">Hello!</span> 
-      </h1>
+    <h1 class="text-7xl lg:text-8xl font-black leading-snug">
+      <span class="text-rose-500">Hey </span>  
+      <span class="text-yellow-500">Hi </span>  
+      <span class="text-sky-500">Hello!</span> 
+    </h1>
 
-      <div class="absolute -top-32 -right-16 animate-wiggle">
-        <div class="flex outline-2 outline-offset-2 outline-dashed outline-yellow-500 items-center justify-center bg-yellow-500 w-28 h-28 rounded-full">
-          <h3 class="text-lg italic font-bold">
-            made w/
-            <br />
-            <span class="text-2xl">{"<3"}</span>
-          </h3>
-        </div>
-      </div>
-      
-    </div>
     
-    <div class="flex flex-col gap-12 px-auto py-8 items-center">
+    <div class="flex flex-col gap-8 px-auto py-8 items-center">
       <h2 class="text-2xl">Software and Web Applications by Zeu Capua</h2>
       <div class="w-12 h-12 animate-bounce">
         <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
@@ -34,12 +125,26 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
   </section>
 
-  <section>
+  <section class="flex flex-col gap-8 px-auto">
     <h3 class="text-4xl font-bold underline decoration-2 underline-offset-8 decoration-double">Sites</h3>
+    <div class="flex flex-col lg:flex-row overflow-x-auto gap-8">
+    { 
+      sites.map((site) => (
+        <ProjectPreview title={site.title} description={site.description} link={site.link} image={site.image} icons={site.icons} />
+      ))
+    }
+    </div>
   </section>
 
-  <section>
+  <section class="flex flex-col gap-8 px-auto">
     <h3 class="text-4xl font-bold underline decoration-2 underline-offset-8 decoration-double">Applications</h3>
+    <div class="flex flex-col lg:flex-row overflow-x-auto gap-8">
+    { 
+      applications.map((application) => (
+        <ProjectPreview title={application.title} description={application.description} link={application.link} image={application.image} icons={application.icons} />
+      ))
+    }
+    </div>
   </section>
 
 </SiteLayout>

@@ -10,15 +10,18 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
 	</head>
-	<body class="flex flex-col gap-8 w-full h-full min-w-screen min-h-screen bg-indigo-950 text-white font-martian p-4 lg:p-8">
-    <nav class="flex flex-row justify-between w-full max-w-[50%] border-2 self-center px-8 py-4 rounded-lg">
+	<body class="flex flex-col w-full h-full min-w-screen min-h-screen bg-violet-950 text-white font-martian p-4 lg:p-8">
+    <nav class="flex flex-row text-sm lg:text-md justify-between w-full lg:max-w-[50%] border-2 self-center px-4 py-2 gap-2 lg:px-8 lg:py-4 rounded-lg">
       <a href="/" class="font-bold rounded-full border border-sky-500 hover:bg-sky-500/10 px-4 py-2 transition duration-300">home</a>
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row gap-2 lg:gap-4">
         <a href="https://thoughts.zeu.dev" class="font-bold rounded-full border border-rose-500 hover:bg-rose-500/10 px-4 py-2 transition duration-300">thoughts</a>
         <a href="/connect" class="font-bold rounded-full border border-yellow-500 hover:bg-yellow-500/10 px-4 py-2 transition duration-300">connect</a>
       </div>
     </nav>
-    <slot />
+
+    <div class="flex flex-col gap-8 p-4">
+      <slot />
+    </div>
 	</body>
 </html>
 
